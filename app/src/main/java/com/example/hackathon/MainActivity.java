@@ -1,18 +1,16 @@
 package com.example.hackathon;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.hackathon.fragments.Help_fragment;
 import com.example.hackathon.fragments.Home_fragment;
+import com.example.hackathon.fragments.info_fragment;
 import com.example.hackathon.fragments.Profile_fragment;
 import com.example.hackathon.fragments.Ticket_fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -22,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView botnavview;
     Home_fragment home_fragment;
     Ticket_fragment ticket_fragment;
-    Help_fragment help_fragment;
+    info_fragment info_fragment;
     Profile_fragment profile_fragment;
 
 
@@ -35,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         botnavview=findViewById(R.id.bottom_nav);
         home_fragment=new Home_fragment();
         ticket_fragment=new Ticket_fragment();
-        help_fragment=new Help_fragment();
         profile_fragment=new Profile_fragment();
         setFragment(home_fragment);
         Log.e("fragments", "oncreate");
@@ -45,15 +42,11 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (menuItem.getItemId())
                 {
-                    case R.id.home_nav:
-                        Log.e("Fragment", "home");
-                        setFragment(home_fragment);
-                        return true;
-                    case R.id.help_nav:
-                        setFragment(help_fragment);
+                    case R.id.info_nav:
+                        setFragment(info_fragment);
                         return true;
 
-                    case R.id.ticket_nav:
+                    case R.id.recycle_nav:
                         setFragment(ticket_fragment);
                         return true;
 
