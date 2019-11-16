@@ -31,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
         Log.e("fragments", "oncreate");
        // getSupportActionBar().setTitle(Html.fromHtml("<font color=\"white\">" + getString(R.string.app_name) + "</font>"));
         botnavview=findViewById(R.id.bottom_nav);
-        home_fragment=new Home_fragment();
+        info_fragment=new info_fragment();
         ticket_fragment=new Ticket_fragment();
         profile_fragment=new Profile_fragment();
-        setFragment(home_fragment);
+        setFragment(info_fragment);
         Log.e("fragments", "oncreate");
         botnavview.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 
@@ -14,6 +16,8 @@ import com.example.hackathon.R;
 public class Ticket_fragment extends Fragment {
 
 
+    Button scan, request;
+    EditText addr;
 
     public Ticket_fragment() {
         // Required empty public constructor
@@ -27,23 +31,17 @@ public class Ticket_fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_ticket_fragment, container, false);
         setHasOptionsMenu(true);
 
+        scan = view.findViewById(R.id.scanImage);
+        request = view.findViewById(R.id.request);
+        addr = view.findViewById(R.id.address);
+
+        onScanCLicked();
+        onR 
+
         return view;
     }
 
-//
-//    @Override
-//    public void onStart() {
-//        Log.e("Ticket", "on start");
-//        super.onStart();
-//        adapter.startListening();
-//    }
-//
-//    @Override
-//    public void onStop() {
-//        Log.e("Ticket", "on stop");
-//        super.onStop();
-//        adapter.stopListening();
-//    }
+
 //
 //    @Override
 //    public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction, int position) {

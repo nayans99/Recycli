@@ -75,7 +75,7 @@ public class VerifyOPTFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_verify_otp, container, false);
-        getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.white));
+        getActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.colorAccent));
 
         Bundle bundle = getArguments();
         phonenumber = bundle.getString("Number");

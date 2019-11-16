@@ -130,29 +130,9 @@ public class Profile_fragment extends Fragment {
 
                         break;
                     }
-                    case 1: //My tickets
-                    {
 
-                        BottomNavigationView navigationView =(BottomNavigationView) getActivity().findViewById(R.id.bottom_nav);
-                        navigationView.getMenu().getItem(1).setChecked(true);
-                        FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
-                        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-                        fragmentTransaction.replace(R.id.main_frame,new Ticket_fragment());
-                        fragmentTransaction.addToBackStack(null);
-                        fragmentTransaction.commit();
-                        Toast.makeText(getContext(),value,Toast.LENGTH_SHORT).show();
-
-
-
-                        break;
-                    }
-                    case 2: //Wallet
-                    {
-
-                        break;
-                    }
 //
-                    case 3: //Call support
+                    case 1: //Call support
                     {
 
                         if (ContextCompat.checkSelfPermission(getActivity(),
@@ -170,7 +150,7 @@ public class Profile_fragment extends Fragment {
                             //You already have permission
                             try {
                                 Intent callIntent = new Intent(Intent.ACTION_CALL);
-                                callIntent.setData(Uri.parse("tel:" + "9579716043"));//change the number
+                                callIntent.setData(Uri.parse("tel:" + "7016210268"));//change the number
                                 startActivity(callIntent);
                             } catch (SecurityException e) {
                                 e.printStackTrace();
@@ -179,24 +159,24 @@ public class Profile_fragment extends Fragment {
 
                         break;
                     }
-                    case 4://Info fragment
+                    case 2://Info fragment
                     {
                         BottomNavigationView navigationView =(BottomNavigationView) getActivity().findViewById(R.id.bottom_nav);
-                        navigationView.getMenu().getItem(2).setChecked(true);
+                        navigationView.getMenu().getItem(0).setChecked(true);
                         FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
                         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-                        fragmentTransaction.replace(R.id.main_frame,new Help_fragment());
+                        fragmentTransaction.replace(R.id.main_frame,new info_fragment());
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
                         break;
                     }
-                    case 5://report an issue
+                    case 3://report an issue
                     {
                         startActivity(new Intent(getActivity(), ReportActivity.class));
 
                         break;
                     }
-                    case 6://about us
+                    case 4://about us
                     {
                         startActivity(new Intent(getActivity(), AboutUs.class));
 

@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#3f51b5</color>
+    <color name="colorPrimaryDark">#23283a</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="pink">#fe104d</color>
+
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGrey">#6C6766</color>
+
+    <color name="logoDark">#2071AC</color>
+    <color name="logoLight">#299DCF</color>
 
 
-    <color name="white">#ffffff</color>
+    <color name="profilePrimaryDark">#FF3B30</color>
+    <color name="profileAccentColor">#F7F7F7</color>
+    <color name="whiteTextColor">#fff</color>
+    <color name="profileBackground">#fff</color>
+    <color name="blackTextColor">#000</color>
+    <color name="profileEditTextColor">#707070</color>
 </resources>
