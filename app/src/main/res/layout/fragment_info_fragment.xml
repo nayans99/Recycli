@@ -4,21 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
     tools:context="fragments.info_fragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="253dp"
-        android:fitsSystemWindows="true"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
-            app:contentScrim="@color/colorPrimaryDark"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleTextAppearance="@style/TransparentText"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
@@ -32,12 +31,13 @@
                 android:layout_height="262dp"
                 android:layout_centerInParent="true"
                 android:gravity="center_horizontal"
+                android:background="@drawable/mygradation"
                 android:orientation="vertical">
 
 
                 <ImageView
                     android:id="@+id/avatarIv"
-                    android:layout_width="match_parent"
+                    android:layout_width="267dp"
                     android:layout_height="match_parent"
                     android:scaleType="fitCenter"
                     android:src="@drawable/ic_photo" />
@@ -50,55 +50,37 @@
                     android:textSize="12dp"
                     android:textStyle="bold" />
 
-
-
             </LinearLayout>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <FrameLayout
-        android:id="@+id/form"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:orientation="vertical">
+
+     <TextView
+         android:id="@+id/rating"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:textAlignment="center"
+         android:text="0"
+         android:textColor="@color/colorPrimary"
+         android:textSize="96sp"/>
 
 
-        <androidx.core.widget.NestedScrollView android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:id="@+id/profileScrollView">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Result of catagorization"
+        android:textSize="29sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAlignment="center"/>
 
-                <androidx.cardview.widget.CardView android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    >
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        >
-                        <TextView
-                            android:layout_marginLeft="20dp"
-                            android:text="Domains"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:id="@+id/rv">
 
-                        </androidx.recyclerview.widget.RecyclerView>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-                </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
 
-    </FrameLayout>
+    </LinearLayout>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -50,36 +50,9 @@ public class Busreport extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View v=inflater.inflate(R.layout.fragment_busreport, container, false);
-        busspinner=v.findViewById(R.id.spinner_qr);
         submit_btn=v.findViewById(R.id.submit_qr);
         editText_busissue=v.findViewById(R.id.edittext_busissue);
         submit_btn.setEnabled(false);
-
-        final List<String>buslist=new ArrayList();
-
-
-        final ArrayAdapter<String>adapter =new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,buslist);
-        busspinner.setAdapter(adapter);
-
-        db=FirebaseFirestore.getInstance();
-
-        db.collection("Route").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-
-                if(task.isSuccessful())
-                {
-                    for(QueryDocumentSnapshot document:task.getResult())
-                    {
-                        buslist.add(document.getId().toString());
-
-                    }
-
-                    adapter.notifyDataSetChanged();
-
-                }
-            }
-        });
 
 
         editText_busissue.addTextChangedListener(new TextWatcher() {
@@ -116,9 +89,8 @@ public class Busreport extends Fragment {
                 HashMap<String,Object> map=new HashMap<>();
                 String number= FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber().toString();
                 map.put("phone",number);
-                map.put("tag","bus");
+                map.put("tag","communication");
                 map.put("issue",editText_busissue.getText().toString());
-                map.put("bus_no",busspinner.getSelectedItem().toString());
                 db.collection("Report").document().set(map);
 
                 Toast.makeText(getContext(),"Report Submitted",Toast.LENGTH_SHORT).show();

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ public class Qrreport extends Fragment {
     Spinner stopspinner;
     Button submit_btn;
 
+    EditText et;
     FirebaseFirestore db;
 
     @Override
@@ -42,31 +44,8 @@ public class Qrreport extends Fragment {
         // Inflate the layout for this fragment
 
         View v =inflater.inflate(R.layout.fragment_qrreport, container, false);
-        stopspinner=v.findViewById(R.id.spinner_qr);
         submit_btn=v.findViewById(R.id.submit_qr);
-
-        final List<String>stoplist=new ArrayList<>();
-        final ArrayAdapter<String>adapter=new ArrayAdapter<>(getActivity(),android.R.layout.simple_spinner_item,stoplist);
-
-        stopspinner.setAdapter(adapter);
-
-        db=FirebaseFirestore.getInstance();
-        db.collection("Stop").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if(task.isSuccessful())
-                {
-                    for(QueryDocumentSnapshot document:task.getResult())
-                    {
-                        stoplist.add(document.getId().toString());
-                    }
-
-                    adapter.notifyDataSetChanged();
-                }
-            }
-        });
-
-
+         et = v.findViewById(R.id.textView10);
 
 
         submit_btn.setOnClickListener(new View.OnClickListener() {
@@ -76,7 +55,7 @@ public class Qrreport extends Fragment {
                 HashMap<String,Object>map=new HashMap<>();
                 map.put("tag","qr");
                 map.put("phone", FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber().toString());
-                map.put("stop",stopspinner.getSelectedItem().toString());
+                map.put("stop",et.getText().toString());
 
                 db.collection("Report").document().set(map);
 

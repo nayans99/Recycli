@@ -108,7 +108,7 @@ public class info_fragment  extends Fragment {
     {
         Log.e("Fragment", "home");
         FragmentTransaction ft1 = getFragmentManager().beginTransaction();
-        ft1.replace(R.id.form, f, "");
+        ft1.replace(R.id.main_frame, f, "");
         ft1.commit();
     }
     private int getScreenWidth() {

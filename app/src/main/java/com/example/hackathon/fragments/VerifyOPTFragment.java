@@ -245,18 +245,24 @@ public class VerifyOPTFragment extends Fragment {
                             docref.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
                                     if(task.isSuccessful())
                                     {
+                                            DocumentSnapshot doc = task.getResult();
+                                            Intent intent;
+                                            if(doc.exists()){
+                                                 intent = new Intent(getActivity(), MainActivity.class);
+                                            }else {
+                                                intent = new Intent(getActivity(), UserDetails.class);
+                                                intent.putExtra("NUM", phonenumber);
+                                            }
                                             getActivity().finish();
-                                            Intent intent = new Intent(getActivity(), UserDetails.class);
-                                            intent.putExtra("NUM", phonenumber);
                                             startActivity(intent);
                                             Log.d(TAG, "signInWithCredential:success");
                                     }
                                 }
                             });
-                            //  FirebaseUser user = task.getResult().getUser();
-                            // ...
+
                         } else {
                             // Sign in failed, display a message and update the UI
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
