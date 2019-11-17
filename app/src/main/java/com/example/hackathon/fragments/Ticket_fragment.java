@@ -35,8 +35,7 @@ public class Ticket_fragment extends Fragment {
         request = view.findViewById(R.id.request);
         addr = view.findViewById(R.id.address);
 
-        onScanCLicked();
-        onR 
+
 
         return view;
     }
