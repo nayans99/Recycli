@@ -50,11 +50,11 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId())
                 {
                     case R.id.info_nav:
-                        setFragment(info_fragment);
+                        setFragment(ticket_fragment);
                         return true;
 
                     case R.id.recycle_nav:
-                        setFragment(ticket_fragment);
+                        setFragment(info_fragment);
                         return true;
 
                     case R.id.profile_nav:
