@@ -93,8 +93,13 @@ public class info_fragment  extends Fragment {
             img.setImageBitmap(image);
 
             float[][] recognitions = mnistClassifier.recognizeImage(preprocessedImage);
-            int r = (int)recognitions[0][0];
-            Log.d("finalstat", "onImageCaptured: "+r);
+            float r = recognitions[0][0];
+            float c;
+            if(r>0.5)
+                c=1;
+            else
+                c = 0;
+            Log.d("finalstat", "onImageCaptured: "+c);
         }
 
         super.onActivityResult(requestCode, resultCode, data);

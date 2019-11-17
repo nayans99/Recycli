@@ -3,6 +3,7 @@ package com.example.hackathon.classes;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
+import android.util.Log;
 
 import org.tensorflow.lite.Interpreter;
 
@@ -41,9 +42,13 @@ public class waste_classifier {
 
     public float[][] recognizeImage(Bitmap bitmap) {
         float[][] result = new float[1][1];
+        result[0][0] = 2;
+        Log.d("vedu", "recognizeImage: "+result[0][0]);
         ByteBuffer byteBuffer = convertBitmapToByteBuffer(bitmap);
        // float[] result=0;
+        Log.d("check", "recognizeImage: ");
         interpreter.run(byteBuffer, result);
+        Log.d("vedu", "recognizeImage: "+result[0][0]);
         return result;
     }
 
